@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Admin Analytics Panel</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<div class="container">
+    <h1>Admin Analytics Panel</h1>
+
+    <form id="adminForm">
+        <label>Admin Password</label>
+        <input type="password" id="password" required>
+
+        <label>Class Code</label>
+        <input type="text" required>
+
+        <button type="submit">View Analytics</button>
+    </form>
+
+    <!-- HIDDEN BACKEND DATA -->
+    <div id="backendData" style="display:none;margin-top:30px;">
+
+        <h2>Rating Overview</h2>
+
+        <p><strong>Dr. Priyanka Kumari - DMGT</strong> : ★★★★☆ (4.3)</p>
+        <p><strong>Dr. Raju Ingale - EP</strong> : ★★★☆☆ (4.9)</p>
+        <p><strong>Dr. Pralhad Pesode - EGR</strong> : ★★★★★ (4.6)</p>
+        <p><strong>Dr. Neha Saathe - FCASD</strong> : ★★★★☆ (4.4)</p>
+        <p><strong>Dr. Rekha Joshi - PEACE</strong> : ★★★☆☆ (3.8)</p>
+        <p><strong>Dr. Uma Pujeri - FOP</strong> : ★★★★★ (5)</p>
+
+        <h2>Decrypted Feedback</h2>
+        <div id="detailPanel" style="display:none; margin-top:30px;">
+    <h2 id="detailTitle">Detailed Review</h2>
+
+    <div class="note" id="detailContent"></div>
+</div>
+
+        <div class="note">
+            • Explains concepts very clearly and logically<br>
+            • Encourages critical thinking in class discussions<br>
+            • More real-world examples would be helpful<br>
+            • Assessments reflect true understanding<br>
+            • Very approachable and responsive to doubts
+        </div>
+
+        <p class="note" style="margin-top:20px;">
+            Data retrieved securely from backend storage.
+        </p>
+    </div>
+
+    <p id="errorMsg" class="note" style="color:#ef4444;display:none;">
+        Incorrect admin password.
+    </p>
+</div>
+<script>
+document.getElementById("adminForm").addEventListener("submit", function(e) {
+    e.preventDefault();
+
+    const pass = document.getElementById("password").value;
+
+    if (pass === "admin123") {
+        document.getElementById("adminForm").style.display = "none";
+        document.getElementById("backendData").style.display = "block";
+        document.getElementById("errorMsg").style.display = "none";
+    } else {
+        document.getElementById("errorMsg").style.display = "block";
+    }
+});
+</script>
+
+<script>
+function showDetails(teacher) {
+    const panel = document.getElementById("detailPanel");
+    const title = document.getElementById("detailTitle");
+    const content = document.getElementById("detailContent");
+
+    panel.style.display = "block";
+
+    const data = {
+        priyanka: {
+            name: "Dr. Priyanka Kumari - DMGT",
+            reviews: [
+                {
+                    scores: [5,5,4,5,4,5,4,5,5],
+                    feedback: "Explains concepts very clearly and logically."
+                },
+                {
+                    scores: [4,4,4,4,4,4,4,4,4],
+                    feedback: "Very structured lectures and good pace."
+                }
+            ]
+        },
+        raju: {
+            name: "Dr. Raju Ingale - EP",
+            reviews: [
+                {
+                    scores: [3,4,3,4,3,3,4,4,3],
+                    feedback: "Good subject knowledge, could improve interaction."
+                }
+            ]
+        },
+        pralhad: {
+            name: "Dr. Pralhad Pesode - EGR",
+            reviews: [
+                {
+                    scores: [5,5,5,5,5,4,5,5,5],
+                    feedback: "Highly engaging and intellectually challenging."
+                }
+            ]
+        },
+        neha: {
+            name: "Dr. Neha Saathe - FCASD",
+            reviews: [
+                {
+                    scores: [4,4,4,4,5,4,4,5,4],
+                    feedback: "Very supportive and connects theory to practice."
+                }
+            ]
+        },
+        rekha: {
+            name: "Dr. Rekha Joshi - PEACE",
+            reviews: [
+                {
+                    scores: [3,3,4,3,3,3,4,3,3],
+                    feedback: "Needs more real-world examples."
+                }
+            ]
+        },
+        uma: {
+            name: "Dr. Uma Puerji - FOP",
+            reviews: [
+                {
+                    scores: [5,5,5,5,5,5,5,5,5],
+                    feedback: "Extremely positive learning environment."
+                }
+            ]
+        }
+        
+    };
+
+    const teacherData = data[teacher];
+    title.innerText = `Detailed Reviews – ${teacherData.name}`;
+
+    let html = "";
+
+    teacherData.reviews.forEach((r, index) => {
+        html += `<p><strong>Student ${index + 1}</strong></p>`;
+        r.scores.forEach((score, i) => {
+            html += `Q${i + 1}: ${score}/5<br>`;
+        });
+        html += `<em>Feedback:</em> ${r.feedback}<br><br>`;
+    });
+
+    content.innerHTML = html;
+}
+</script>
+
+</body>
+</html>
