@@ -1,0 +1,102 @@
+/* style.css */
+body {
+    margin: 0;
+    font-family: "Segoe UI", Arial, sans-serif;
+    background: #0f172a;
+    color: #e5e7eb;
+}
+
+.container {
+    max-width: 800px;
+    margin: 40px auto;
+    background: #111827;
+    padding: 30px;
+    border-radius: 12px;
+    box-shadow: 0 0 25px rgba(0,0,0,0.4);
+}
+
+h1, h2 {
+    text-align: center;
+    color: #38bdf8;
+}
+
+label {
+    display: block;
+    margin-top: 18px;
+    font-weight: 500;
+}
+
+select, textarea, input {
+    width: 100%;
+    padding: 10px;
+    margin-top: 6px;
+    border-radius: 6px;
+    border: none;
+    background: #1f2933;
+    color: #fff;
+}
+
+textarea {
+    resize: vertical;
+}
+
+.rating {
+    display: flex;
+    gap: 12px;
+    margin-top: 8px;
+}
+
+.rating label {
+    font-weight: normal;
+}
+
+button {
+    margin-top: 30px;
+    width: 100%;
+    padding: 12px;
+    background: #38bdf8;
+    color: #020617;
+    border: none;
+    font-size: 16px;
+    border-radius: 8px;
+    cursor: pointer;
+    font-weight: bold;
+}
+
+button:hover {
+    background: #0ea5e9;
+}
+
+.note {
+    text-align: center;
+    margin-top: 15px;
+    font-size: 13px;
+    color: #9ca3af;
+}
+/* Success screen */
+.success-screen {
+    display: none;
+    text-align: center;
+    padding: 60px 20px;
+}
+
+.success-screen h1 {
+    font-size: 32px;
+    color: #22c55e;
+    margin-bottom: 15px;
+}
+
+.success-screen p {
+    font-size: 16px;
+    color: #9ca3af;
+}
+/* Make teacher rows clickable */
+.teacher-item {
+    cursor: pointer;
+    padding: 6px 0;
+}
+
+.teacher-item:hover {
+    color: #38bdf8;
+    text-decoration: underline;
+}

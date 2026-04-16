@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Anonymous Teacher Feedback</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<div class="container">
+    <h1>Anonymous Teacher Feedback</h1>
+
+    <form id="feedbackForm">
+
+        <!-- Class & Teacher -->
+        <label>Class Code</label>
+        <input type="text" required placeholder="e.g. CS_A_DIV_2026">
+
+        <label>Select Teacher</label>
+        <select required>
+            <option value="">-- Select --</option>
+            <option>Dr. Priyanka Kumari - DMGT</option>
+            <option>Dr. Raju Ingale - EP</option>
+            <option>Dr. Pralhad Pesode - EGR</option>
+            <option>Dr. Neha Saathe - FCASD</option>
+            <option>Dr. Rekha Joshi - PEACE</option>
+            <option>Dr. Uma Pujeri - FOP</option>
+        </select>
+
+        <h2>Course Evaluation</h2>
+
+        <!-- Rating scale note -->
+        <p style="font-size:13px;color:#9ca3af">
+            Scale: 1 = Very Poor, 5 = Excellent
+        </p>
+
+        <!-- QUESTIONS 1–9 -->
+        <!-- Use same structure -->
+
+        <label>1. Rate the instructor’s ability to promote deep conceptual understanding.</label>
+        <div class="rating">
+            <label><input type="radio" name="q1" required>1</label>
+            <label><input type="radio" name="q1">2</label>
+            <label><input type="radio" name="q1">3</label>
+            <label><input type="radio" name="q1">4</label>
+            <label><input type="radio" name="q1">5</label>
+        </div>
+
+        <label>2. Rate how clearly the instructor explains the reasoning and logic behind complex topics.</label>
+        <div class="rating">
+            <label><input type="radio" name="q2" required>1</label>
+            <label><input type="radio" name="q2">2</label>
+            <label><input type="radio" name="q2">3</label>
+            <label><input type="radio" name="q2">4</label>
+            <label><input type="radio" name="q2">5</label>
+        </div>
+
+        <label>3. Rate the intellectual rigor and academic challenge of the course.</label>
+        <div class="rating">
+            <label><input type="radio" name="q3" required>1</label>
+            <label><input type="radio" name="q3">2</label>
+            <label><input type="radio" name="q3">3</label>
+            <label><input type="radio" name="q3">4</label>
+            <label><input type="radio" name="q3">5</label>
+        </div>
+
+        <label>4. Rate the effectiveness of the instructor in developing your critical thinking skills.</label>
+        <div class="rating">
+            <label><input type="radio" name="q4" required>1</label>
+            <label><input type="radio" name="q4">2</label>
+            <label><input type="radio" name="q4">3</label>
+            <label><input type="radio" name="q4">4</label>
+            <label><input type="radio" name="q4">5</label>
+        </div>
+
+        <label>5. Rate how well theoretical concepts were connected to practical, real-world, or industry applications.</label>
+        <div class="rating">
+            <label><input type="radio" name="q5" required>1</label>
+            <label><input type="radio" name="q5">2</label>
+            <label><input type="radio" name="q5">3</label>
+            <label><input type="radio" name="q5">4</label>
+            <label><input type="radio" name="q5">5</label>
+        </div>
+
+        <label>6. Rate the clarity and structure of lectures (logical flow, progression of ideas).</label>
+        <div class="rating">
+            <label><input type="radio" name="q6" required>1</label>
+            <label><input type="radio" name="q6">2</label>
+            <label><input type="radio" name="q6">3</label>
+            <label><input type="radio" name="q6">4</label>
+            <label><input type="radio" name="q6">5</label>
+        </div>
+
+        <label>7. Rate the quality of assessments in evaluating true understanding rather than memorization.</label>
+        <div class="rating">
+            <label><input type="radio" name="q7" required>1</label>
+            <label><input type="radio" name="q7">2</label>
+            <label><input type="radio" name="q7">3</label>
+            <label><input type="radio" name="q7">4</label>
+            <label><input type="radio" name="q7">5</label>
+        </div>
+
+        <label>8. Rate the instructor’s responsiveness to doubts and intellectually challenging questions.</label>
+        <div class="rating">
+            <label><input type="radio" name="q8" required>1</label>
+            <label><input type="radio" name="q8">2</label>
+            <label><input type="radio" name="q8">3</label>
+            <label><input type="radio" name="q8">4</label>
+            <label><input type="radio" name="q8">5</label>
+        </div>
+
+        <label>9. Rate the overall effectiveness of teaching methods used in this course.</label>
+        <div class="rating">
+            <label><input type="radio" name="q9" required>1</label>
+            <label><input type="radio" name="q9">2</label>
+            <label><input type="radio" name="q9">3</label>
+            <label><input type="radio" name="q9">4</label>
+            <label><input type="radio" name="q9">5</label>
+        </div>
+
+        <label>10. Any suggestions or feedback</label>
+        <textarea rows="4" placeholder="Write your feedback here..."></textarea>
+
+        <button type="submit">Submit Feedback</button>
+
+        <p id="successMsg" class="note" style="display:none;color:#22c55e;">
+            ✔ Feedback submitted successfully. Thank you!
+        </p>
+
+        <div class="note">
+            Your response is completely anonymous.<br>
+            No personal information is collected.
+        </div>
+
+    </form>
+</div>
+
+<script>
+document.getElementById("feedbackForm").addEventListener("submit", function(e) {
+    e.preventDefault(); // stop page reload
+
+    // hide form
+    this.style.display = "none";
+
+    // show success message
+    document.getElementById("successScreen").style.display = "block";
+});
+</script>
+<form id="feedbackForm">
+    <!-- ALL your current form content stays exactly the same -->
+</form>
+<div id="successScreen" class="success-screen">
+    <h1>✔ Feedback Submitted Successfully</h1>
+    <p>Thank you for sharing your honest feedback.<br>
+       Your response has been recorded anonymously.</p>
+</div>
+
+</body>
+</html>
